@@ -30,7 +30,7 @@ export default function ArchiveViewer({ document }: ArchiveViewerProps) {
       case "pdf":
         return (
           <Button
-            label="View PDF"
+            label="Ver PDF"
             color="primary"
             onClick={() => {
               window.open(document.filePath, "_blank");
