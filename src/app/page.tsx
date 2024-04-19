@@ -1,5 +1,7 @@
 import Image from "next/image";
 import RankingSidebar from "./ui/RankingSidebar";
+import ArchiveViewer from "./ui/ArchiveViewer";
+import DataSection from "./ui/DataSection";
 
 export default function Home() {
   return (
@@ -16,8 +18,13 @@ export default function Home() {
         }}
       />
       <div className="flex-1 flex flex-col">
-        <div>Viewer</div>
-        <div>Data</div>
+        <ArchiveViewer
+          document={{
+            id: "123",
+            filePath: "/BR_RJANRIO_TN_CPR_PTE_3972_d0001de0001 (7).pdf",
+          }}
+        />
+        <DataSection />
       </div>
     </div>
   );
