@@ -20,8 +20,14 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col">
           {/* TODO: Add header */}
-          <div className="bg-primary p-3 text-off-white text-xl font-bold flex flex-row gap-4">
-            <Image src="/logo.png" alt="logo" width={50} height={50} />
+          <div className="bg-primary p-3 text-off-white text-3xl font-bold flex flex-row gap-4 items-center">
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={90}
+              height={90}
+              className="bg-off-white rounded p-2"
+            />
             MetaMistério
           </div>
           <main className="flex flex-1">{children}</main>
