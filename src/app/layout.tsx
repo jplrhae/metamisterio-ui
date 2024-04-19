@@ -16,7 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="min-h-screen flex flex-col">
+          {/* TODO: Add header */}
+          <div className="bg-slate-400">Header</div>
+          <main className="flex flex-1">{children}</main>
+          <div className="bg-slate-400">Footer</div>
+          {/* TODO: Add footer */}
+        </div>
+      </body>
     </html>
   );
 }
