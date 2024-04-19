@@ -8,8 +8,10 @@ const config: Config = {
     "./src/stories/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      primary: "#761735",
+    extend: {
+      colors: {
+        primary: "#761735",
+      },
     },
   },
   plugins: [],
