@@ -21,7 +21,7 @@ export default function Home() {
         <ArchiveViewer
           document={{
             id: "123",
-            filePath: "/BR_RJANRIO_NO_0_FIL_1700_d0001de0001.mp4",
+            filePath: "BR_RJANRIO_TN_CPR_PTE_3972_d0001de0001 (7).pdf",
           }}
         />
         <DataSection />

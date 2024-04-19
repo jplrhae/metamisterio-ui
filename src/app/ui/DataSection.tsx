@@ -48,12 +48,12 @@ export default function DataSection() {
   };
 
   return (
-    <div className="h-1/4 flex flex-col px-2 bg-backdrop text-white">
+    <div className="h-1/4 flex flex-col px-2 bg-secondary-light text-primary">
       <div className="flex-1 flex flex-col justify-center items-center ">
         <div className="font-bold">{currentField.displayName}</div>
         <input
           type={currentField.inputType}
-          className="border-2 rounded-md p-2 md:w-2/3 mt-2 mb-2 text-black"
+          className="border-2 rounded-md p-2 md:w-2/3 mt-2 mb-2 text-primary bg-off-white"
           placeholder={currentField.placeholder}
           value={currentField.value}
           onChange={(e) => {

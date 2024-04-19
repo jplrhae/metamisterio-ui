@@ -11,9 +11,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#761735",
-        secondary: "#F7F7F7",
-        "primary-light": "#A52A58",
-        backdrop: "#5F0F2D", // Modified backdrop color
+        "secondary-dark": "#35424a",
+        "secondary-light": "#ECC4C3",
+        backdrop: "#5F0F2D",
+        light: "#F2F2F2",
+        "off-white": "#FFFFFF",
+      },
+      textColor: {
+        primary: "#333333",
+        soft: "#4a4a4a",
+      },
+      backgroundColor: {
+        light: "#F2F2F2",
+        white: "#FFFFFF",
       },
     },
   },

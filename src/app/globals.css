@@ -2,10 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --burgundy: #761735;
+  --dark-slate: #35424a;
+  --sandstone: #e6d5b8;
+  --light-gray: #f2f2f2;
+  --off-white: #ffffff;
+  --jet-black: #333333;
+  --charcoal: #4a4a4a;
+  --cerulean: #2a7f62;
+  --venetian-red: #d32f2f;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+  background-color: var(--light-gray);
+  color: var(--jet-black);
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -18,6 +32,33 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
+}
+
+h1,
+h2,
+h3,
+.important {
+  color: var(--burgundy);
+}
+
+.btn-primary {
+  background-color: var(--burgundy);
+  color: var(--off-white);
+}
+
+.btn-secondary {
+  background-color: var(--sandstone);
+  color: var(--dark-slate);
+}
+
+.alert-success {
+  background-color: var(--cerulean);
+  color: var(--off-white);
+}
+
+.alert-error {
+  background-color: var(--venetian-red);
+  color: var(--off-white);
 }
 
 a {
