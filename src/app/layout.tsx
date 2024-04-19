@@ -21,8 +21,6 @@ export default function RootLayout({
           {/* TODO: Add header */}
           <div className="bg-primary p-3 text-off-white">Arquivo Nacional</div>
           <main className="flex flex-1">{children}</main>
-          <div className="bg-secondary-dark text-off-white p-2">Footer</div>
-          {/* TODO: Add footer */}
         </div>
       </body>
     </html>

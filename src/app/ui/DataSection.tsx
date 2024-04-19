@@ -11,6 +11,8 @@ export default function DataSection() {
   );
 
   useEffect(() => {
+    document.querySelector(".timer")?.classList.add("text-blue-400");
+
     const interval = setInterval(() => {
       setTime((prevTime) => prevTime - 1);
     }, 1000);
@@ -19,9 +21,6 @@ export default function DataSection() {
   }, []);
 
   useEffect(() => {
-    if (time === 30) {
-      document.querySelector(".timer")?.classList.add("text-blue-400");
-    }
     if (time === 20) {
       document.querySelector(".timer")?.classList.remove("text-blue-400");
       document.querySelector(".timer")?.classList.add("text-yellow-400");
@@ -35,8 +34,13 @@ export default function DataSection() {
     }
   }, [time]);
 
-  const handleTimeOver = () => {
+  useEffect(() => {
     setTime(30);
+    document.querySelector(".timer")?.classList.add("text-blue-400");
+    document.querySelector(".timer")?.classList.remove("text-red-400");
+  }, [currentField]);
+
+  const handleTimeOver = () => {
     const currentIndex = metadataFields.findIndex(
       (field) => field.id === currentField.id
     );
@@ -48,12 +52,12 @@ export default function DataSection() {
   };
 
   return (
-    <div className="h-1/4 flex flex-col px-2 bg-secondary-light text-primary">
+    <div className="h-1/4 flex flex-col  bg-secondary-light text-primary">
       <div className="flex-1 flex flex-col justify-center items-center ">
         <div className="font-bold">{currentField.displayName}</div>
         <input
           type={currentField.inputType}
-          className="border-2 rounded-md p-2 md:w-2/3 mt-2 mb-2 text-primary bg-off-white"
+          className="border-2 border-primary rounded-md p-2 md:w-2/3 mt-2 mb-2 text-primary bg-off-white"
           placeholder={currentField.placeholder}
           value={currentField.value}
           onChange={(e) => {
@@ -63,7 +67,9 @@ export default function DataSection() {
         />
         <Button label="Enviar" color="primary" />
       </div>
-      <div className="self-end text-blue-400 font-bold timer">{time}s</div>
+      <div className="text-2xl sm:text-3xl text-center bg-primary font-bold timer p-1">
+        {time}s
+      </div>
     </div>
   );
 }
