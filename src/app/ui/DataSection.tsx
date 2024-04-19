@@ -44,6 +44,17 @@ export default function DataSection() {
     const currentIndex = metadataFields.findIndex(
       (field) => field.id === currentField.id
     );
+    // if (currentIndex === metadataFields.length - 1) {
+    //   setCurrentField(metadataFields[0]);
+    // } else {
+    //   setCurrentField(metadataFields[currentIndex + 1]);
+    // }
+  };
+
+  const handleNextField = () => {
+    const currentIndex = metadataFields.findIndex(
+      (field) => field.id === currentField.id
+    );
     if (currentIndex === metadataFields.length - 1) {
       setCurrentField(metadataFields[0]);
     } else {
@@ -53,11 +64,11 @@ export default function DataSection() {
 
   return (
     <div className="h-1/4 flex flex-col  bg-secondary-light text-primary">
-      <div className="flex-1 flex flex-col justify-center items-center ">
+      <div className="flex-1 flex flex-col justify-center items-center mx-2">
         <div className="font-bold">{currentField.displayName}</div>
         <input
           type={currentField.inputType}
-          className="border-2 border-primary rounded-md p-2 md:w-2/3 mt-2 mb-2 text-primary bg-off-white"
+          className="border-2 border-primary rounded-md p-2 w-full my-2 text-primary bg-off-white"
           placeholder={currentField.placeholder}
           value={currentField.value}
           onChange={(e) => {
@@ -67,7 +78,10 @@ export default function DataSection() {
         />
         <Button label="Enviar" color="primary" />
       </div>
-      <div className="text-2xl sm:text-3xl text-center bg-primary font-bold timer p-1">
+      <div
+        className="text-2xl sm:text-3xl text-center bg-primary font-bold timer p-1"
+        onClick={() => handleNextField()}
+      >
         {time}s
       </div>
     </div>
