@@ -2,17 +2,24 @@
 
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
-import { MetadataField, metadataFields } from "../lib/definitions";
+import { MetadataField } from "../lib/definitions";
+import { metadataFields } from "../lib/data";
+import { matchSorter } from "match-sorter";
 
-export default function DataSection() {
+interface DataSectionProps {
+  indexPointOptions: string[];
+}
+
+export default function DataSection({ indexPointOptions }: DataSectionProps) {
   const [time, setTime] = useState(30);
+  const [currentValue, setCurrentValue] = useState<string>("");
   const [currentField, setCurrentField] = useState<MetadataField>(
     metadataFields[0]
   );
+  const [selectedIndexPoints, setSelectedIndexPoints] = useState<string[]>([]);
+  const [closestIndexPoint, setClosestIndexPoint] = useState<string>("");
 
   useEffect(() => {
-    document.querySelector(".timer")?.classList.add("text-blue-400");
-
     const interval = setInterval(() => {
       setTime((prevTime) => prevTime - 1);
     }, 1000);
@@ -30,26 +37,30 @@ export default function DataSection() {
       document.querySelector(".timer")?.classList.add("text-red-400");
     }
     if (time === 0) {
-      handleTimeOver();
+      handleNextField();
     }
   }, [time]);
 
   useEffect(() => {
     setTime(30);
+    setClosestIndexPoint("");
+    setCurrentValue("");
     document.querySelector(".timer")?.classList.add("text-blue-400");
     document.querySelector(".timer")?.classList.remove("text-red-400");
   }, [currentField]);
 
-  const handleTimeOver = () => {
-    const currentIndex = metadataFields.findIndex(
-      (field) => field.id === currentField.id
-    );
-    // if (currentIndex === metadataFields.length - 1) {
-    //   setCurrentField(metadataFields[0]);
-    // } else {
-    //   setCurrentField(metadataFields[currentIndex + 1]);
-    // }
-  };
+  useEffect(() => {
+    if (currentField.id === "indexPoint" && currentValue.length > 1) {
+      const filteredOptions = matchSorter(indexPointOptions, currentValue);
+      setClosestIndexPoint(filteredOptions[0]);
+    } else {
+      setClosestIndexPoint("");
+    }
+  }, [currentValue]);
+
+  useEffect(() => {
+    console.log(closestIndexPoint);
+  }, [closestIndexPoint]);
 
   const handleNextField = () => {
     const currentIndex = metadataFields.findIndex(
@@ -66,16 +77,32 @@ export default function DataSection() {
     <div className="h-1/4 flex flex-col  bg-secondary-light text-primary">
       <div className="flex-1 flex flex-col justify-center items-center mx-2">
         <div className="font-bold">{currentField.displayName}</div>
-        <input
-          type={currentField.inputType}
-          className="border-2 border-primary rounded-md p-2 w-full my-2 text-primary bg-off-white"
-          placeholder={currentField.placeholder}
-          value={currentField.value}
-          onChange={(e) => {
-            currentField.value = e.target.value;
-            setCurrentField((currentField) => ({ ...currentField }));
-          }}
-        />
+        {currentField.id === "indexPoint" ? (
+          <div className="flex flex-row w-full gap-2">
+            <input
+              type={currentField.inputType}
+              className="border-2 border-primary rounded-md p-2 w-full my-2 text-primary bg-off-white"
+              placeholder={currentField.placeholder}
+              value={currentValue}
+              onChange={(e) => {
+                setCurrentValue(e.target.value);
+              }}
+            />
+            <div className="bg-primary rounded-md p-2 w-full my-2 text-off-white hover:bg-opacity-80 cursor-pointer">
+              {closestIndexPoint}
+            </div>
+          </div>
+        ) : (
+          <input
+            type={currentField.inputType}
+            className="border-2 border-primary rounded-md p-2 w-full my-2 text-primary bg-off-white"
+            placeholder={currentField.placeholder}
+            value={currentValue}
+            onChange={(e) => {
+              setCurrentValue(e.target.value);
+            }}
+          />
+        )}
         <Button label="Enviar" color="primary" />
       </div>
       <div
