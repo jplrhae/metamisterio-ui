@@ -21,7 +21,7 @@ const mockedDocument: Document = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col lg:flex-row w-full">
       <RankingSidebar session={mockedSession} />
       <div className="flex-1 flex flex-col">
         <ArchiveViewer document={mockedDocument} />

@@ -61,11 +61,11 @@ export default function ArchiveViewer({ document }: ArchiveViewerProps) {
               >
                 <Page
                   pageNumber={pageNumber}
-                  width={280}
+                  scale={0.4}
                   loading={<PDFLoadingSkeleton />}
                 />
               </PDFDocument>
-              <p className="text-white text-sm">
+              <p className="text-primary text-sm">
                 Page <span className="font-bold">{pageNumber}</span> of{" "}
                 <span className="font-bold">{numPages}</span>
               </p>
