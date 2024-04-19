@@ -5,7 +5,7 @@ import DataSection from "./ui/DataSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-row w-full">
+    <div className="flex flex-col w-full">
       <RankingSidebar
         session={{
           users: [
@@ -21,7 +21,7 @@ export default function Home() {
         <ArchiveViewer
           document={{
             id: "123",
-            filePath: "/BR_RJANRIO_TN_CPR_PTE_3972_d0001de0001 (7).pdf",
+            filePath: "/BR_RJANRIO_NO_0_FIL_1700_d0001de0001.mp4",
           }}
         />
         <DataSection />

@@ -48,13 +48,18 @@ export default function DataSection() {
   };
 
   return (
-    <div className="h-1/4 flex flex-col px-2">
+    <div className="h-1/4 flex flex-col px-2 bg-backdrop text-white">
       <div className="flex-1 flex flex-col justify-center items-center ">
-        <div>{currentField.displayName}</div>
+        <div className="font-bold">{currentField.displayName}</div>
         <input
           type={currentField.inputType}
-          className="border-2 rounded-md p-2 md:w-2/3 mt-2 mb-2"
+          className="border-2 rounded-md p-2 md:w-2/3 mt-2 mb-2 text-black"
           placeholder={currentField.placeholder}
+          value={currentField.value}
+          onChange={(e) => {
+            currentField.value = e.target.value;
+            setCurrentField((currentField) => ({ ...currentField }));
+          }}
         />
         <Button label="Enviar" color="primary" />
       </div>

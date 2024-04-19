@@ -13,11 +13,11 @@ interface RankingSidebarProps {
  */
 export default function RankingSidebar({ session }: RankingSidebarProps) {
   return (
-    <aside className="w-36 md:w-1/6 text-white bg-primary p-4 overflow-auto">
-      <h2 className="md:text-xl font-semibold mb-4">Ranking 👑</h2>
-      <ul>
+    <aside className=" md:w-1/6 text-white bg-backdrop p-4 overflow-auto">
+      <h2 className="md:text-xl font-semibold mb-2">Ranking 👑</h2>
+      <ul className="flex flex-row md:flex-col gap-2">
         {session.users.map((entry) => (
-          <li key={entry.name} className="text-sm md:text-base mb-2">
+          <li key={entry.name} className="text-sm md:text-base">
             {entry.name}: {entry.points}
           </li>
         ))}

@@ -45,8 +45,8 @@ export default function ArchiveViewer({ document }: ArchiveViewerProps) {
         );
       case "mp4":
         return (
-          <div className="flex h-3/4 border-2 items-center justify-center">
-            <p>Image</p>
+          <div className="mx-2">
+            <video src={document.filePath} controls />
           </div>
         );
       default:
@@ -59,7 +59,7 @@ export default function ArchiveViewer({ document }: ArchiveViewerProps) {
   };
 
   return (
-    <div className="flex h-3/4 border-2 items-center justify-center">
+    <div className="flex h-3/4 items-center justify-center bg-primary">
       {renderFile()}
     </div>
   );
