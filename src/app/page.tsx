@@ -17,7 +17,7 @@ const mockedSession: Session = {
 
 const mockedDocument: Document = {
   id: "123",
-  filePath: "BR_RJANRIO_TN_CPR_PTE_3972_d0001de0001 (7).pdf",
+  filePath: "/BR_RJANRIO_TN_CPR_PTE_3972_d0001de0001 (7).pdf",
 };
 
 export default async function Home() {

@@ -26,7 +26,7 @@ export default function ArchiveViewer({ archiveDocument }: ArchiveViewerProps) {
         return <PDFRenderer filePath={archiveDocument.filePath} />;
       case "mp3":
         return (
-          <div className="mx-2">
+          <div className="flex items-center justify-center">
             <ReactAudioPlayer
               src={archiveDocument.filePath}
               autoPlay
@@ -36,7 +36,7 @@ export default function ArchiveViewer({ archiveDocument }: ArchiveViewerProps) {
         );
       case "mp4":
         return (
-          <div className="mx-2">
+          <div className="flex overflow-hidden w-full items-center justify-center">
             <video src={archiveDocument.filePath} controls />
           </div>
         );
@@ -50,7 +50,7 @@ export default function ArchiveViewer({ archiveDocument }: ArchiveViewerProps) {
   };
 
   return (
-    <div className="flex h-3/4 w-full bg-off-white text-secondary-dark">
+    <div className="flex h-3/4 justify-center w-full bg-off-white text-secondary-dark">
       {renderFile()}
     </div>
   );
