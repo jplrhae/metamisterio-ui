@@ -46,6 +46,7 @@ export default function PDFRenderer({ filePath }: PDFRendererProps) {
         <FaChevronCircleLeft
           color="#35424a"
           cursor={"pointer"}
+          className="sm:hidden"
           size={20}
           onClick={() =>
             setPageNumber((prev) => {
@@ -84,6 +85,7 @@ export default function PDFRenderer({ filePath }: PDFRendererProps) {
         <FaChevronCircleRight
           color="#35424a"
           cursor={"pointer"}
+          className="sm:hidden"
           size={20}
           onClick={() =>
             setPageNumber((prev) => {
